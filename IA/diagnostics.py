@@ -57,6 +57,7 @@ def getStartup():
 
 def getPerms():
   # Needs testing
+  # https://raccoon.ninja/en/dev/using-python-to-check-if-the-application-is-running-as-an-administrator/
   try:
     is_admin = (os.getuid() == 0)
   except AttributeError:
