@@ -20,8 +20,7 @@ class functions:
     # Needs testing
     with open(diagnosticFile, "w+") as file:
       file.write("PID   PROCESS NAME")
- 
-      # Iterating through all the running processes
+
       for process in wrapper.Win32_Process():
         file.write(f"{process.ProcessId:<10} {process.Name}")
       return True
@@ -30,12 +29,12 @@ class functions:
   def getRuntime():
       # Needs testing
       with open(diagnosticFile, "w+") as file:
-        OS = ("Operating-System: ", platform.system())
-        ver = ("Version: ", platform.version())
-        machine = ("Machine-Type: ", platform.machine())
-        currentTime = ("Time: ", datetime.now().time())
-        currentDate = ("Date: ", datetime.now().date())
-        encoding = ("Encoding: ", sys.getfilesystemencoding())
+        OS = str("Operating-System: ", platform.system())
+        ver = str("Version: ", platform.version())
+        machine = str("Machine-Type: ", platform.machine())
+        currentTime = str("Time: ", datetime.now().time())
+        currentDate = str("Date: ", datetime.now().date())
+        encoding = str("Encoding: ", sys.getfilesystemencoding())
     
         returnList = (OS, ver, machine, currentDate, currentTime, encoding)
         file.write(str(returnList))
